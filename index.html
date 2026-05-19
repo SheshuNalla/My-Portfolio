@@ -1,35 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="./Images/favicon.png">
     <title>Sheshu_Nalla</title>
 </head>
 <body >
+    <div id="overlay"
+        class="fixed inset-0  backdrop-blur-sm hidden z-40 transition-all duration-300">
+    </div>
     <header class="backdrop-blur-xl border-transparent z-30 sticky top-0">
         <nav class=" container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
             <a target="_self" href="#" class="text-4xl font-bold m-5">&lt;$N /&gt;</a>
             <div class="mt-6">
-                <ul class="flex flex-row mt-2">
+                <ul class="hidden lg:flex items-center gap-8">
                     <li><a href="#about" class="m-4 text-xl text-gray-500 hover:text-black font-semibold">About</a></li>
                     <li><a href="#skills" class="m-4 text-xl text-gray-500 hover:text-black font-semibold">Skills</a></li>
                     <li><a href="#projects" class="m-4 text-xl text-gray-500 hover:text-black font-semibold">Projects</a></li>
                     <li><a href="#contact" class="m-4 text-xl text-gray-500 hover:text-black font-semibold">Contact</a></li>
-                    <div>
+                    <li>
                         <a href="#"></a>
                         <a target="_blank" href="./files/SheshuNalla.pdf" class="ml-8 text-xl font-semibold bg-black text-white rounded-xl p-3">Download CV</a>
-                    </div>
+                    </li>
                 </ul>
+                <!-- Hamburger Button -->
+
+                <button id="menu-btn" class="lg:hidden hover:cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-10">
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h16.5" 
+                        />
+                    </svg>
+                </button>
             </div>
         </nav>
     </header>
-    <main class="my-40 flex items-center p-10">
+    <aside id="mobile-menu"
+            class="fixed top-0 right-[-100%] w-[280px] h-screen bg-white shadow-2xl z-50 transition-all duration-300">
+        <div class="flex items-center justify-between p-6 ">
+            <a href="#" class="text-3xl font-bold">
+                 &lt;$N /&gt;
+            </a>
+            <!-- Close Button -->
+            <button id="close-btn">
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-8">
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12" 
+                    />
+                </svg>
+            </button>
+        </div>
+        <!-- Menu Links -->
+        <ul class="flex flex-col p-6 gap-6 ">
+            <li class="list-item"><a href="#about" class="select text-lg text-gray-600 font-semibold hover:text-black">
+                    About
+                </a>
+            </li>
+            <li class="list-item"><a href="#skills" class="select text-lg text-gray-600 font-semibold hover:text-black">
+                    Skills
+            </li></a>
+            <li class="list-item"><a href="#projects" class="select text-lg text-gray-600 font-semibold hover:text-black">
+                    Projects
+            </li></a>
+            <li class="list-item"><a href="#contact" class="select text-lg text-gray-600 font-semibold hover:text-black">
+                    Contact
+            </li></a>
+        </ul>
+        <!-- Button -->
+        <div class="p-6">
+            <a target="_blank"
+                href="./files/SheshuNalla.pdf"
+                class="block text-center text-lg font-semibold bg-black text-white rounded-xl px-4 py-3">
+                Download CV
+            </a>
+        </div>
+    </aside>
+    <main class="lg:my-40 flex items-center p-10">
         <div class="container mx-auto px-4 md:px-6">
             <div class="flex flex-col-reverse lg:flex-row items-center gap-12">
                 <div class="w-full lg:w-2/3 ">
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">Hi, Iam Sheshu</h1>
-                    <p class="mt-6 text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">I'm a passionate aspiring software developer with a strong interest in Javascript, Python and Web development. 
+                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">Hi, I'm Sheshu Nalla</h1>
+                    <p class="mt-6 text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">I'm a passionate aspiring software developer with a strong interest in JavaScript, Python and Web development. 
                         I enjoy building projects, solving coding problems, and continuously learning new technologies to improve my skills.
                         Currently, I'm focused on strengthening my programming fundamentals and growing as a developer through hands-on practice and real-world projects.
                     </p>
@@ -48,6 +114,7 @@
                 </div>
                 <div class="w-full lg:w-1/2 flex justify-center">
                     <img 
+                        alt="Sheshu Nalla"
                         src="./Images/sheshu.png"
                         class="w-72 md:w-96 lg:w-[350px] rounded-2xl shadow-2xl" >
                 </div>
@@ -55,126 +122,124 @@
         </div>
     </main>
     <section id="about" class="bg-gray-50 mt-35" >
-        <div class="container mx-auto text-center">
-            <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-xl inline-block px-4 m-4 mt-26">About me</h1>
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-xl inline-block px-4 m-4 mt-28">About me</h1>
         </div>
-        <div class="container mx-auto mt-12 pb-18">
+        <div class="container mx-auto mt-12 pb-18 px-4 md:px-6">
             <div>
                 <!-- photo -->
             </div>
-            <div>
-                <h1 class="text-4xl font-bold ">Curious about me? Here you have it:</h1>
-                <p class="text-2xl text-gray-600 mt-12">
-                    I'm a passionate Frontent Developer who loves to building clean, responsive, and interactive web applications.
+            <div class="container mx-auto px-4 md:px-6">
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">Curious about me? Here you have it:</h1>
+                <p class="text-lg md:text-xl lg:text-2xl text-gray-600 mt-12">
+                    I'm a passionate Frontend Developer who loves to building clean, responsive, and interactive web applications.
                     My journey in web development started with <span class="font-semibold">HTML</span> & <span class="font-semibold">CSS</span>, 
                     and over time I've explored <span class="font-semibold">Javascript</span>, <span class="font-semibold">Tailwind CSS</span> and <span class="font-semibold">Python</span>.
                 </p>
-                <p class="text-2xl text-gray-600 mt-8">
+                <p class="text-lg md:text-xl lg:text-2xl text-gray-600 mt-8">
                     I've completed Bachelor of Technology (B.Tech) in Computer Science Engineering in 2025 with a strong foundation in web development and programming skills. Since then, I've continued to learn and grow to become a web developer,
                     taking on new challenges and learning the latest technologies along the way. I am very much progressive thinker and  enjoy turning ideas into real-world products.
                 </p>
-                <p class="text-2xl text-gray-600 mt-8">Iam looking for the right oppurtunity to contribute and execute my skills in real-world products.</p>
+                <p class="text-lg md:text-xl lg:text-2xl text-gray-600 mt-8">Iam looking for the right opportunity to contribute and execute my skills in real-world products.</p>
             </div>
         </div>
     </section>
     <section id="skills">
-        <div class="container mx-auto">
+        <div class="container mx-auto py-20 md:py-28 px-4 md:px-6">
             <div class="text-center">
-                <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 px-6 m-4 mt-26">Skills</h1>
+                <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 px-6 m-4 ">Skills</h1>
             </div>
             <p class="text-3xl text-gray-700 mt-6 text-center ">The skills, tools and technologies I'm really good at:</p>
         
-            <div class="mt-10 flex justify-between">
-                <div class="inline-block p-6">
+            <div class="mt-10 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <div class="p-4 md:p-6 flex flex-col items-center">
                     <a class="" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML">
-                        <img class="h-33 w-35 hover:scale-110 duration-300" src="./Images/html5_18891.jpg">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/html5_18891.jpg">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">HTML</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">HTML</p>
                 </div>
-                <div class="inline-block p-6 ">
+                <div class="p-4 md:p-6 flex flex-col items-center ">
                     <a class="" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS">
-                        <img class="h-32 w-36 hover:scale-110 duration-300" src="./Images/CSS-Logo-2011.png">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/CSS-Logo-2011.png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">CSS</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">CSS</p>
                 </div>
-                <div class="inline-block p-6 ">
+                <div class="p-4 md:p-6 flex flex-col items-center ">
                     <a class="" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-                        <img class="h-30 w-30 hover:scale-110 duration-300" src="./Images/download (1).png">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/download (1).png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">Javascript</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">JavaScript</p>
                 </div>
-                <div class="inline-block p-6 ">
+                <div class="p-4 md:p-6 flex flex-col items-center ">
                     <a class="" target="_blank" href="https://react.dev/">
-                        <img class="h-30 w-35 hover:scale-110 duration-300" src="./Images/React-icon.svg.png">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/React-icon.svg.png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">ReactJS</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">ReactJS</p>
                 </div>
-                <div class="inline-block p-6 ">
+                <div class="p-4 md:p-6 flex flex-col items-center ">
                     <a class="" target="_blank" href="https://www.python.org/">
-                        <img class="h-30 w-30 hover:scale-110 duration-300" src="./Images/Python-logo-notext.svg.png">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/Python-logo-notext.svg.png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">Python</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">Python</p>
                 </div>
-            </div>
-            <div class="mt-8 flex justify-between">
-                <div class="inline-block p-6 ">
+                <div class="p-4 md:p-6 flex flex-col items-center ">
                     <a class="" target="_blank" href="https://tailwindcss.com/">
-                        <img class="h-30 w-35 hover:scale-110 duration-300" src="./Images/tailwindcss-icon-icon-size_512.png">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/tailwindcss-icon-icon-size_512.png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">TailwindCSS</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">TailwindCSS</p>
                 </div>
-                <div class="inline-block p-6 ">
+                <div class="p-4 md:p-6 flex flex-col items-center ">
                     <a class="" target="_blank" href="https://getbootstrap.com/">
-                        <img class="h-30 w-35 hover:scale-110 duration-300" src="./Images/Bootstrap_logo.svg.png">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/Bootstrap_logo.svg.png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">Bootstrap</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">Bootstrap</p>
                 </div>
-                <div class="inline-block p-6 ">
+                <div class="p-4 md:p-6 flex flex-col items-center ">
                     <a class="" target="_blank" href="https://www.mysql.com/">
-                        <img class="h-30 w-40 hover:scale-110 duration-300" src="./Images/ECX-1909_Hero_MySQL_600x400@2x-1.png">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/ECX-1909_Hero_MySQL_600x400@2x-1.png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">MySQL</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">MySQL</p>
                 </div>
-                <div class="inline-block p-6 ">
+                <div class="p-4 md:p-6 flex flex-col items-center ">
                     <a class="" target="_blank" href="https://git-scm.com/">
-                        <img class="h-30 w-30 hover:scale-110 duration-300" src="./Images/Git-Icon-1788C.png">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/Git-Icon-1788C.png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">GIT</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">GIT</p>
                 </div>
-                <div class="inline-block p-6 ">
+                <div class="p-4 md:p-6 flex flex-col items-center">
                     <a class="" target="_blank" href="https://code.visualstudio.com/">
-                        <img class="h-30 w-30 hover:scale-110 duration-300" src="./Images/code-stable.png">
+                        <img class="h-23 w-23 md:h-28 md:w-30 lg:h-34 lg:w-34 hover:scale-110 duration-300" src="./Images/code-stable.png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">VS code</p>
+                    <p class="text-lg md:text-xl text-gray-700 text-center mt-3">VS code</p>
                 </div>
             </div>
         </div>
     </section>
-    <section id="projects" class="bg-gray-50 mt-35">
-        <div class="container mx-auto pb-18">
+    <section id="projects" class="bg-gray-50 py-20 md:py-28">
+        <div class="container mx-auto px-4 md:px-6 pb-18">
             <div class="text-center ">
-                <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 px-6 m-4 mt-26">Projects</h1>
+                <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 px-6 m-4 ">Projects</h1>
                 <p class="text-3xl text-gray-700 mt-3 text-center" >Some of the mini-projects I've built:</p>
             </div>
-            <div class="bg-white flex shadow-md rounded-2xl mt-16 border-transparent border ">
-                <div class="bg-gray-100  rounded-2xl rounded-r-none w-1/2 text-center">
+            <div class="bg-white flex flex-col lg:flex-row shadow-md rounded-2xl mt-16 overflow-hidden">
+                <div class="bg-gray-100  rounded-2xl rounded-r-none w-full lg:w-1/2 text-center">
                     <a target="_blank" class="inline-block my-10 " href="https://sheshunalla.github.io/MyBookList/#">
-                        <img alt="MyBookList app" class="h-95 w-135  rounded-xl hover:scale-105 duration-400" src="/Images/MyBookList .png">
+                        <img alt="MyBookList app" class="w-full max-w-xl object-cover rounded-xl hover:scale-105 duration-300 " src="/Images/MyBookList .png">
                     </a>
                 </div>
-                <div class=" bg-white align-center rounded-2xl rounded-l-none w-1/2">
+                <div class=" bg-white align-center rounded-2xl rounded-l-none w-full lg:w-1/2">
                     <div class="container mx-auto">
-                        <h1 class="text-2xl m-16 mb-0 font-semibold">MyBookList</h1>
-                        <p class="text-2xl text-gray-600  ml-16 mt-8 mr-8">
+                        <h1 class="text-2xl mx-6 mt-8 md:mx-10 lg:mx-16 mb-0 font-semibold">MyBookList</h1>
+                        <p class="text-2xl text-gray-600 mx-6 mt-8 md:mx-10 lg:mx-16 ">
                             A simple Book List app that lets users add, search, and manage books with data stored using local storage.
                         </p>
-                        <ul class="ml-16 mt-8">
-                            <li class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl mr-4 py-1 px-6 inline-block">HTML</li>
-                            <li class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block mr-4 py-1 px-6">Tailwindcss</li>
-                            <li class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 mr-4 px-6">Javascript</li>
-                            <li class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 mr-4 px-6 ">Localstorage</li>
+                        <ul class="mx-6 md:mx-10 lg:mx-16 mt-8 flex flex-wrap gap-3">
+                            <li class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl  py-1 px-6 inline-block">HTML</li>
+                            <li class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block  py-1 px-6">TailwindCSS</li>
+                            <li class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1  px-6">JavaScript</li>
+                            <li class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1  px-6 ">Localstorage</li>
                         </ul>
-                        <a target="_blank" href="https://sheshunalla.github.io/MyBookList/#" class="inline-block ml-15 mt-20 hover:border rounded-xl border-transparent hover:bg-gray-100 p-1">
+                        <a target="_blank" href="https://sheshunalla.github.io/MyBookList/#" class="inline-block ml-15 mt-12 hover:border rounded-xl border-transparent hover:bg-gray-100 p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 text-gray-500 ">
                             
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />   
@@ -185,29 +250,29 @@
             </div>
         </div>
     </section>
-    <section id="coding-profiles" class="bg-gray-50 mt-35">
-        <div class="container mx-auto">
+    <section id="coding-profiles" class="py-20 md:py-28">
+        <div class="container mx-auto px-4 md:px-6">
             <div class="text-center">
-                <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 px-6 m-4 mt-26">Coding platforms</h1>
+                <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 px-6 m-4 ">Coding platforms</h1>
             </div>
             <p class="text-3xl text-gray-700 mt-6 text-center ">Coding platforms I actively practice on:</p>
         
-            <div class="mt-10 flex justify-center">
-                <div class="inline-block p-6 mx-15">
+            <div class="mt-10 flex flex-wrap justify-center gap-8">
+                <div class="inline-block p-6 mx-2 md:mx-6">
                     <a class="" target="_blank" href="https://www.hackerrank.com/profile/sheshunalla002">
-                        <img class="h-33 w-35 hover:scale-110 duration-300" src="./Images/hackerrank_logo.jpg">
+                        <img class="h-32 w-34 hover:scale-110 duration-300" src="./Images/hackerrank_logo.jpg">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">Hackerrank</p>
+                    <p class="text-2xl text-gray-700  text-center mt-3">HackerRank</p>
                 </div>
                 <div class="inline-block p-6 mx-15">
                     <a class="" target="_blank" href="https://github.com/SheshuNalla">
                         <img class="h-32 w-36 hover:scale-110 duration-300" src="./Images/github-6980894_640.png">
                     </a>
-                    <p class="text-2xl text-gray-700  text-center mt-3">Github</p>
+                    <p class="text-2xl text-gray-700  text-center mt-3">GitHub</p>
                 </div>
                 <div class="inline-block p-6 mx-15">
                     <a class="" target="_blank" href="https://leetcode.com/u/Sheshu_Nalla/">
-                        <img class="h-30 w-35 hover:scale-110 duration-300" src="./Images/leetcode.png">
+                        <img class="h-30 w-36 hover:scale-110 duration-300" src="./Images/leetcode.png">
                     </a>
                     <p class="text-2xl text-gray-700  text-center mt-3">Leetcode</p>
                 </div>
@@ -215,33 +280,35 @@
             
         </div>
     </section>
-    <section id="contact">
-        <div class="container mx-auto">
+    <section id="contact" class="bg-gray-50 py-20 my-26 md:py-28">
+        <div class="container mx-auto px-4 md:px-6">
             <div class="flex flex-col items-center ">
-                <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 px-6 m-4 mt-26 ">Get in touch</h1>
+                <h1 class="text-lg text-gray-600 font-semibold bg-gray-300 rounded-2xl inline-block py-1 px-6 m-4  ">Get in touch</h1>
                 <p class="text-3xl text-gray-700 mt-6 max-w-4xl text-center">What’s next? Feel free to reach out to me if you are looking for a developer, have a query, or simply want to connect</p>
             </div>
             <div>
-                <div class="flex justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 mt-17 text-gray-600 mr-5">
+                <div class="flex flex-col md:flex-row items-center justify-center text-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 md:size-10 lg:size-12 mt-17 text-gray-600 mr-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                     </svg>
-                    <a  href="mailto:sheshunalla002@gmail.com" class="text-5xl font-semibold mt-16 hover:underline">sheshunalla002@gmail.com</a>
+                    <a  href="mailto:sheshunalla002@gmail.com" class="text-xl md:text-3xl lg:text-5xl font-semibold mt-16 hover:underline">sheshunalla002@gmail.com</a>
                 </div>
-                <div class="flex justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 mt-7 text-gray-600 mr-5">
+                <div class="flex flex-col md:flex-row items-center justify-center text-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 md:size-10 lg:size-12 mt-7 text-gray-600 mr-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                     </svg>
 
-                    <a href="tel:+918341848521" class="text-5xl font-semibold mt-6 hover:underline">+91 8341848521</a>
+                    <a href="tel:+918341848521" class="text-xl md:text-3xl lg:text-5xl font-semibold mt-6 hover:underline">+91 8341848521</a>
                 </div>
             </div>
         </div>
     </section>
-    <footer id="footer" class="bg-gray-50 mt-35">
-        <div class="container mx-auto text-center text-xl text-gray-600 py-8">
-            ©2026 | <a target="_blank" href="https://github.com/SheshuNalla/My-Portfolio"><span class="underline hover:text-black">Coded</span></a> by SheshuNalla
+    <footer id="footer" class="">
+        <div class="container mx-auto text-center text-xl text-gray-600 ">
+            © 2026 | <a target="_blank" href="https://github.com/SheshuNalla/My-Portfolio"><span class="underline hover:text-black">Coded</span></a> by SheshuNalla
         </div>
     </footer>
+    
+    <script src="./script.js"></script>
 </body>
 </html>
