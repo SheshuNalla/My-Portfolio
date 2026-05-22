@@ -34,3 +34,22 @@ function closeMenu() {
 
 }
 
+function copyEmail(){
+    const email = document.querySelector("#email").innerText;
+    const alert = document.querySelector(".copy-email")
+    navigator.clipboard.writeText(email);
+    alert.classList.remove("opacity-0");
+    setTimeout(()=>{
+        alert.classList.add("opacity-0", "transition", "duration-300")
+    },2500)
+}
+function copyNumber(){
+    const number = document.querySelector("#number").innerText;
+    const alert = document.querySelector(".copy-number")
+    navigator.clipboard.writeText(number);
+    alert.classList.remove("opacity-0");
+    setTimeout(()=>{
+        alert.classList.add("opacity-0", "transition", "duration-300")
+    },2500)
+}
+
